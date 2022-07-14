@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 function QuotesAdd() {
+  const [post, setPost] = useState("");
+
   return (
     <>
       <div className="container">
@@ -14,7 +17,13 @@ function QuotesAdd() {
             </div>
             <div className="form-group">
               <label htmlFor="quote">Post</label>
-              <input type="text" className="form-control" />
+              <textarea
+                type="text"
+                className="form-control"
+                onChange={(e) => setPost(e.target.value)}
+              />
+
+              <ReactMarkdown children={post} />
             </div>
           </div>
         </form>
